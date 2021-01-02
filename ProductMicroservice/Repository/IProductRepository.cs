@@ -6,7 +6,7 @@ using ProductMicroservice.Model;
 
 namespace ProductMicroservice.Repository
 {
-    interface IProductRepository
+    public interface IProductRepository
     {
         IEnumerable<Product> GetProducts();
         Product GetProductByID(int ProductId);
