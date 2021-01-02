@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using ProductMicroservice.DBContexts;
 
 namespace ProductMicroservice
 {
@@ -24,8 +26,8 @@ namespace ProductMicroservice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
+            services.AddDbContext<ProductContext>(o => o.UseSqlServer(Configuration.GetConnectionString("ProductDB")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
